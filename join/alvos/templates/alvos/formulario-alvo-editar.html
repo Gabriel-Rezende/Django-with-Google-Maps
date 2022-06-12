@@ -1,0 +1,33 @@
+{% load i18n widget_tweaks %}
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Editar Alvo</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="{% url 'alvos:editar_alvo' pk=object.pk %}" method="post" id="editar-alvo" class="form">
+                {% csrf_token %}
+                {{ form.media }}
+                {% for field in form.visible_fields %}
+                <fieldset class="form-group">
+                    {{ field.label_tag }}
+                    {{ field|attr:"class:form-control" }}
+                </fieldset>
+                {% endfor %}
+                <div class="pull-right">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <form action="{% url 'alvos:excluir_alvo' pk=object.pk %}" method="post" id="excluir-alvo" class="form">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Excluir Alvo</button>
+            </form>
+        </div>
+    </div>
+</div>
