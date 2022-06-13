@@ -9,4 +9,6 @@ Exercise using Django and Google Maps Javascript API to dinamically insert, remo
 - pip3 install -r requirements.txt 
 
 - Change the DATABASES variable config on settings.py to match your PostgreSQL Database.
-- In case you're using linux, the requirement psycopg2 must be changed to psycopg2-binary. 
+- In case you're using linux, the requirement psycopg2 must be changed to psycopg2-binary.
+- Run with: python manage.py runserver
+- To run tests, use: python manage.py test
